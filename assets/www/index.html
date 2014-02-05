@@ -21,12 +21,23 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
         
-         <link rel="stylesheet"  href="css/jquery.mobile.min.css" />
-  
+         <link rel="stylesheet" href="css/jquery.mobile.min.css" />
+         <link rel="stylesheet" href="css/app.css" />
+         
          <script>
-           document.write('<script src="cordova.js"></sc' + 'ript>');
+           var userAgent = navigator.userAgent + '';
+           if (userAgent.indexOf('iPhone') > -1) {
+             var mobile_system = 'iphone';
+           } else if (userAgent.indexOf('Android') > -1) {
+             var mobile_system = 'android';
+           } else {
+             var mobile_system = '';
+           }
+           if (mobile_system != '') {
+             document.write('<script src="cordova.js"></sc' + 'ript>');
+           }
          </script>
   
          <script src="js/jquery.min.js"></script>
@@ -35,19 +46,27 @@
          <script src="js/jquery.mobile.min.js"></script>
          <script src="js/jquery.jplayer.min.js"></script>
         
-        <title>RaBe</title>
+        <title>Radio RaBe - 95.6</title>
     </head>
-    <body>
+    <body id="rabeapp">
         <div data-role="page">
             <div data-role="header">
-                <h1>Single page</h1>
+                <h1>Radio RaBe - 95.6</h1>
             </div>
-            <div data-role="content"> 
-                <p>This is a single page boilerplate template that you can copy to build your first jQuery Mobile page. Each link or form from here will pull a new page in via Ajax to support the animated page transitions.</p>
-                <p>This template is standard HTML document with a single "page"</p>
+            <div data-role="content" class="rabeapp-content">
+                <img class="rabeapp-rabe-logo" src="img/rabe_logo.jpg" />
+            
+                <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                <div id="jp_container">
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <a data-role="button" data-iconpos="notext" class="jp-play">Play</a>
+                        <a data-role="button" data-iconpos="notext" class="jp-stop">Stop</a>
+                    </div>
+                </div>
+                <img class="rabeapp-doge" src="img/radio-doge-nao.png" />
             </div>
             <div data-role="footer">
-                <h4>Footer content</h4>
+                <h4>2014 - Lucas Bickel</h4>
             </div>
         </div>
     </body>
