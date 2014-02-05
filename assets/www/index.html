@@ -45,7 +45,16 @@
          <script src="js/bootstrap.js"></script>
          <script src="js/jquery.mobile.min.js"></script>
          <script src="js/jquery.jplayer.min.js"></script>
-        
+         <script type="text/javascript">
+           var _songtickerli_url = 'http://intranet.rabe.ch/songticker/0.9.3/';
+           var _songtickerli_targets = {
+             "show":"#ticker .show",
+             "title":"#ticker .title",
+             "artist":"#ticker .artist",
+             "starttime":"#ticker .starttime"
+           }
+        </script>
+        <script type="text/javascript" src="js/songticker.js"></script>
         <title>Radio RaBe - 95.6</title>
     </head>
     <body id="rabeapp">
@@ -54,8 +63,13 @@
                 <h1>Radio RaBe - 95.6</h1>
             </div>
             <div data-role="content" class="rabeapp-content">
-                <img class="rabeapp-rabe-logo" src="img/rabe_logo.jpg" />
-            
+                <div id="ticker">
+                    <p class="show" style="overflow:hidden;"></p>
+                    <img class="rabeapp-rabe-logo" src="img/rabe_logo.jpg" />
+                    <p class="title" style="overflow:hidden;"></p>
+                    <p class="artist" style="overflow:hidden;"></p>
+                    <span class="starttime" style="display:none;"></span>
+                </div>
                 <div id="jquery_jplayer_1" class="jp-jplayer"></div>
                 <div id="jp_container">
                     <div data-role="controlgroup" data-type="horizontal">

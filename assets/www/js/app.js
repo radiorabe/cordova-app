@@ -30,5 +30,16 @@ var startApp = function() {
        solution:"flash,html",
        wmode: "window"
    });
+   
+   // hack for opening ticker links externally
+   $('.link').live('tap', function() {
+       url = $(this).attr("rel");   
+       loadURL(url);
+   });
+
+   function loadURL(url){
+       navigator.app.loadUrl(url, { openExternal:true });
+       return false;
+   } 
 
 };
